@@ -17,7 +17,7 @@ This repository contains my personal portfolio showcasing my projects, skills, a
 2. Open `index.html` in your web browser.
 
 ## Watch My Portfolio Video
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Gg8Z5PRlfb0?si=EUkhfI6kwKKpRuvN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[![Watch my video](https://img.youtube.com/vi/Gg8Z5PRlfb0/maxresdefault.jpg)](https://www.youtube.com/watch?v=Gg8Z5PRlfb0)
 
 ## License
 MIT License
