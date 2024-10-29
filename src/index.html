@@ -9,73 +9,90 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+
+
+  
     <div class="bg-white" id="home">
-        <header class="absolute inset-x-0 top-0 z-50">
-          <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
-            <div class="flex lg:flex-1">
+      <header class="absolute inset-x-0 top-0 z-50">
+        <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+          <div class="flex lg:flex-1">
+            <a href="#" class="-m-1.5 p-1.5">
+              <span class="sr-only">Prabhansh Tiwari</span>
+              <img class="h-8 w-auto" src="./image/nav-img.png" alt="">
+            </a>
+          </div>
+          <div class="flex lg:hidden">
+            <button type="button" onclick="toggleMenu()" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+              <span class="sr-only">Open main menu</span>
+              <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              </svg>
+            </button>
+          </div>
+      
+          <!-- Desktop Menu -->
+          <div class="hidden lg:flex lg:gap-x-12">
+            <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Home</a>
+            <a href="#about-me" class="text-sm font-semibold leading-6 text-gray-900">About Me</a>
+            <a href="#projects" class="text-sm font-semibold leading-6 text-gray-900">Projects</a>
+            <a href="#education" class="text-sm font-semibold leading-6 text-gray-900">Education</a>
+            <a href="#certifications" class="text-sm font-semibold leading-6 text-gray-900">Certifications</a>
+            <a href="#contact" class="text-sm font-semibold leading-6 text-gray-900">Contact</a>
+          </div>
+          
+          <!-- Resume Download Button -->
+          <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+            <a href="https://docs.google.com/document/d/1SfiP5hbnt2HJeOprHbm4hQYn7wlZMI2N/edit?usp=drive_link&ouid=110589615626390234819&rtpof=true&sd=true" class="text-sm font-semibold leading-6 text-gray-900">Download Resume <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </nav>
+      
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="lg:hidden hidden fixed inset-0 z-50" role="dialog" aria-modal="true">
+          <div class="fixed inset-0 bg-black opacity-50"></div>
+          <div class="fixed inset-y-0 right-0 z-50 w-full bg-white px-6 py-6 sm:max-w-sm">
+            <div class="flex items-center justify-between">
               <a href="#" class="-m-1.5 p-1.5">
                 <span class="sr-only">Prabhansh Tiwari</span>
                 <img class="h-8 w-auto" src="./image/nav-img.png" alt="">
               </a>
-            </div>
-            <div class="flex lg:hidden">
-              <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
-                <span class="sr-only">Open main menu</span>
-                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+              <button type="button" onclick="toggleMenu()" class="-m-2.5 rounded-md p-2.5 text-gray-700">
+                <span class="sr-only">Close menu</span>
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                 </svg>
               </button>
             </div>
-            <div class="hidden lg:flex lg:gap-x-12">
-              <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Home</a>
-              <a href="#about-me" class="text-sm font-semibold leading-6 text-gray-900">About Me</a>
-              <a href="#projects" class="text-sm font-semibold leading-6 text-gray-900">Projects</a>
-              <!-- <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Experience</a> -->
-              <a href="#education" class="text-sm font-semibold leading-6 text-gray-900">Education</a>
-              <a href="#certifications" class="text-sm font-semibold leading-6 text-gray-900">Certifications</a>
-              <a href="#contact" class="text-sm font-semibold leading-6 text-gray-900">Contact</a>
-            </div>
-            <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-              <a href="https://docs.google.com/document/d/1SfiP5hbnt2HJeOprHbm4hQYn7wlZMI2N/edit?usp=drive_link&ouid=110589615626390234819&rtpof=true&sd=true" class="text-sm font-semibold leading-6 text-gray-900">Download Resume <span aria-hidden="true">&rarr;</span></a>
-            </div>
-          </nav>
-          <!-- Mobile menu, show/hide based on menu open state. -->
-          <div class="lg:hidden" role="dialog" aria-modal="true">
-            <!-- Background backdrop, show/hide based on slide-over state. -->
-            <div class="fixed inset-0 z-50"></div>
-            <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-              <div class="flex items-center justify-between">
-                <a href="#" class="-m-1.5 p-1.5">
-                  <span class="sr-only">Your Company</span>
-                  <img class="h-8 w-auto" src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600" alt="">
-                </a>
-                <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
-                  <span class="sr-only">Close menu</span>
-                  <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </div>
-              <div class="mt-6 flow-root">
-                <div class="-my-6 divide-y divide-gray-500/10">
-                  <div class="space-y-2 py-6">
-                    <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Home</a>
-                    <a href="#about-me" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">About Me</a>
-                    <a href="#projects" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Projects</a>
-                    <!-- <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Experience</a> -->
-                    <a href="#education" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Education</a>
-                    <a href="certifications" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Certifications</a>
-                    <a href="#contact class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Contact</a>
-                  </div>
-                  <div class="py-6">
-                    <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Download Resume</a>
-                  </div>
+            <div class="mt-6 flow-root">
+              <div class="-my-6 divide-y divide-gray-500/10">
+                <div class="space-y-2 py-6">
+                  <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Home</a>
+                  <a href="#about-me" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">About Me</a>
+                  <a href="#projects" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Projects</a>
+                  <a href="#education" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Education</a>
+                  <a href="#certifications" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Certifications</a>
+                  <a href="#contact" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Contact</a>
+                </div>
+                <div class="py-6">
+                  <a href="https://docs.google.com/document/d/1SfiP5hbnt2HJeOprHbm4hQYn7wlZMI2N/edit?usp=drive_link&ouid=110589615626390234819&rtpof=true&sd=true" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Download Resume</a>
                 </div>
               </div>
             </div>
           </div>
-        </header>
+        </div>
+      </header>
       
+      <script>
+        function toggleMenu() {
+          const menu = document.getElementById("mobileMenu");
+          menu.classList.toggle("hidden");
+        }
+      </script>
+      
+      
+
+        
+      
+
 
 
 
@@ -180,7 +197,7 @@
   <div class="flex gap-20 justify-center ...">
 
 
-    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div  id="calculator" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <a href="#">
           <img class="rounded-t-lg" src="./image/projects/calculator.png" alt="" />
       </a>
@@ -203,7 +220,7 @@
   </div>
   
   
-  <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+  <div id="tribute-page" class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     <a href="#">
         <img class="rounded-t-lg" src="./image/projects/tribute-page.png" alt="" />
     </a>
@@ -328,45 +345,44 @@
 </div>
 
 <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
-<!-- contact me -->
-
+<!-- Contact Me -->
 <div class="overflow-hidden bg-white py-24 sm:py-32">
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
       <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-        <div class="lg:pr-8 lg:pt-4">
-          <div class="lg:max-w-lg">
-            <p class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl" id="contact">Contact Me</p>
-            <section class="bg-white dark:bg-gray-900">
-              <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
-            
-                  <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">I’d love to hear from you! Feel free to reach out for collaboration, inquiries, or just a chat.</p>
-                  <form action="#" class="space-y-8">
-                      <div>
-                          <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your email</label>
-                          <input type="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="Enter your email" required>
+          <div class="lg:pr-8 lg:pt-4">
+              <div class="lg:max-w-lg">
+                  <p class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl" id="contact">Contact Me</p>
+                  <section class="bg-white dark:bg-gray-900">
+                      <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+                          <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">
+                              I’d love to hear from you! Feel free to reach out for collaboration, inquiries, or just a chat.
+                          </p>
+                          <form action="https://script.google.com/macros/s/AKfycbwibKQQkqq3ToVSlMfZ7b9YSvgxqvU6hOxX_80KZ0m99jzFD659eSU1dmvJ4cQoBzbZvA/exec" method="POST" class="space-y-8" aria-labelledby="contact">
+                            <div>
+                                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your email</label>
+                                <input type="email" name="email" id="email" aria-label="Your email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="Enter your email" required>
+                            </div>
+                            <div>
+                                <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Subject</label>
+                                <input type="text" name="subject" id="subject" aria-label="Subject" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="Subject of your message" required>
+                            </div>
+                            <div class="sm:col-span-2">
+                                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your message</label>
+                                <textarea name="message" id="message" rows="6" aria-label="Your message" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Leave a comment..." required></textarea>
+                            </div>
+                            <button type="submit" class="py-3 px-5 text-sm font-medium text-center text-black rounded-lg bg-slate-300 sm:w-fit hover:bg-slate-300 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Send message</button>
+                        </form>
+                        
                       </div>
-                      <div>
-                          <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Subject</label>
-                          <input type="text" id="subject" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="Subject of your message" required>
-                      </div>
-                      <div class="sm:col-span-2">
-                          <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your message</label>
-                          <textarea id="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Leave a comment..."></textarea>
-                      </div>
-                      <button type="submit" class="py-3 px-5 text-sm font-medium text-center text-black rounded-lg bg-slate-300 sm:w-fit hover:bg-slate-300 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Send message</button>
-                  </form>
+                  </section>
               </div>
-            </section>
-            
-        </div>
-    </div>
-    <img src="./image/fav.png" alt="Product screenshot" class="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0" width="2432" height="1442">
+          </div>
+          <img src="./image/fav.png" alt="Product screenshot" class="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:-ml-0" width="2432" height="1442">
+      </div>
   </div>
-</div>
 </div>
 
 <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
-
 
 
 
@@ -417,10 +433,10 @@
                 <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Projects</h2>
                 <ul class="text-gray-500 dark:text-gray-400 font-medium">
                     <li class="mb-4">
-                        <a href="#" class="hover:underline">Calculator</a>
+                        <a href="#calculator" class="hover:underline">Calculator</a>
                     </li>
                     <li>
-                        <a href="#" class="hover:underline">Tribute Page</a>
+                        <a href="#tribute-page" class="hover:underline">Tribute Page</a>
                     </li>
                 </ul>
             </div>
@@ -428,7 +444,7 @@
                 <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Connect</h2>
                 <ul class="text-gray-500 dark:text-gray-400 font-medium">
                     <li class="mb-4">
-                        <a href="https://github.com/themesberg/flowbite" class="hover:underline ">LinkedIn</a>
+                        <a href="https://www.linkedin.com/in/prabhansh-tiwari" class="hover:underline ">LinkedIn</a>
                     </li>
                     <li>
                       <a href="https://wa.me/9118953879027" class="hover:underline">Whatsapp</a>
